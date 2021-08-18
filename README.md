@@ -1,4 +1,4 @@
-# MangaRosa - Backenc
+# MangaRosa 
 
 >Projeto separado em __frontend__e__backend__. [backend] (https://github.com/phgusmao/mangarosa-backend) , e [frontend] (https://github.com/phgusmao/mangarosa-frontend)
 
