@@ -1,0 +1,118 @@
+<!-- <div class="container">
+    <mat-stepper linear>
+        <mat-step>
+            <form [formGroup]="form">
+            <ng-template matStepLabel>Nome:</ng-template>
+            <mat-form-field appearance="fill" >
+                <mat-label>Nome</mat-label>
+                <input name="name"  matInput  placeholder="Last name, First name" 
+                required [(ngModel)]="register.name">
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Próximo</button>
+            </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form>
+            <ng-template matStepLabel>E-mail:</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input matInput  placeholder="Ex. voce@email.com" name="email"
+                required [(ngModel)]="register.email">
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Voltar</button>
+                <button mat-button matStepperNext>Próximo</button>
+            </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form>
+                <ng-template matStepLabel>CPF:</ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>CPF</mat-label>
+                    <input matInput  placeholder="Ex. 000.000.000-00" name="cpf"
+                    required [(ngModel)]="register.cpf">
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Voltar</button>
+                    <button mat-button matStepperNext>Próximo</button>
+                </div>
+                </form>
+        </mat-step>
+        <mat-step>
+            <form>
+                <ng-template matStepLabel>Telefone:</ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput  placeholder="Ex. (00)0000-0000" name="phone"
+                    required  [(ngModel)]="register.phone">
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Voltar</button>
+                    <button mat-button matStepperNext>Próximo</button>
+                </div>
+                </form>
+        </mat-step>
+        <mat-step>
+            <form>
+                <ng-template matStepLabel>Escolha seus connhecimentos:</ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>Conhecimentos: </mat-label>
+                    <mat-select matNativeControl name="conhecimento">
+                        <mat-option  *ngFor="let conhecimento of conhecimentos" value="conhecimento.value">
+                            {{conhecimento}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <p>
+                </p>
+                <div>
+                    <button mat-button matStepperPrevious>Voltar</button>
+                    <button mat-button (click)="handleSave(register)">Salvar</button>
+                </div>
+                </form>
+        </mat-step>
+        </mat-stepper>
+</div> -->
+<div class="container">
+    <form [formGroup]="form">
+        <mat-form-field appearance="fill" >
+            <ng-template matStepLabel>Nome:</ng-template>
+            <mat-label>Nome</mat-label>
+            <input name="name"  matInput  placeholder="Last name, First name" 
+            required formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input matInput  placeholder="Ex. voce@email.com" name="email"
+            required formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput  placeholder="Ex. 000.000.000-00" name="cpf"
+            required formControlName="cpf">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input matInput  placeholder="Ex. (00)0000-0000" name="phone"
+            required  formControlName="phoneNumber">
+        </mat-form-field>
+
+        <ng-container formArrayName="knowledges">
+            <div *ngFor="let item of knowledges; let i = index" >
+                <mat-checkbox class="example-margin" [formControlName]="i">
+                {{ item.name }}
+                </mat-checkbox>
+            </div> 
+        </ng-container>
+        <br>
+        <div>
+            <button mat-button (click)="handleSave()" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
+</div>

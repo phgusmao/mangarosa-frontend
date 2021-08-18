@@ -1,0 +1,30 @@
+<h2>Lista de registros</h2>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="">FIltrar registros:</label>
+    <div class="col-sm-10">
+        <input [(ngModel)]="filter" class="form-control" type="text">
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Detalhes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let register of _register">
+            <td>{{register.name}}</td>
+            <td>{{register.cpf}}</td>
+            <td>{{register.email}}</td>
+            <td>
+                <a [routerLink]="['/register-list/info', register.id]" class="btn btn-primary">Detalhes</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
